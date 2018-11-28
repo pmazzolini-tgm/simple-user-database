@@ -40,7 +40,7 @@ Im obersten Verzeichniss des Projektes ein Textfile namens `TODO.md` erstellen u
 Auf der Github-Seite seines Projekten auf den Fork-Knopf drücken
 (Der Link zum Repository folgt dem Schema: `https://github.com/TGM-HIT/sew5-simple-user-database-<username>-tgm`)
 * Den SSH/HTTPS Link für das geforkte Repository kann man hier bekommen:
-![https://imgur.com/a/jNvhyrv](https://imgur.com/a/jNvhyrv)
+![https://imgur.com/a/jNvhyrv]('https://imgur.com/a/jNvhyrv')
 * Im Rootverzeichniss des Projektes muss ein Git-Bash (oder Linux, kein Standard Windows) Kommandofenster geöffnet werden
 * Um seinen Code auf dieses Repository hochladen zu können muss dieser Befehl ausgeführt werden:
 `git remote add forked <SSH/HTTPS Link>`
