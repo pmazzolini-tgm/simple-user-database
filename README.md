@@ -8,7 +8,7 @@ In diesem README wird die SEW VUE-Client Aufgabe Schritt für Schritt erklärt.
 * [x] Vue.js initialisieren -> ./src/main/vue/client  
 * [x] Client mit Vue.js auf REST-Server verbinden (Auslesen der User)  
 * [x] Cypress.io Test für das Listening der User schreiben  
-* [ ] Travis.yml erstellen und das neue origin/master (Fork) mit TravisCI einbinden und server/client Tests durchführen  
+* [x] Travis.yml erstellen und das neue origin/master (Fork) mit TravisCI einbinden und server/client Tests durchführen  
 * [ ] README erweitern und auf upstream/master pushen  
 * [ ] weitere GUI-Elemente implementieren/testen/dokumentieren
 
