@@ -75,11 +75,11 @@ Hier werden wir den generierten HelloWorldComponent verändern anstatt einen neu
 Im File `src/components/HelloWorld.vue` alles löschen und durch das ersetzen:
 ```html
 <template>
-	<div class="hello">
-		<div v-for="student in students">
-			{{ student.email }}
-		</div>
-	</div>
+  <div class="hello">
+    <div v-for="student in students">
+      {{ student.email }}
+    </div>
+  </div>
 </template>  
   
 <script>  
@@ -186,3 +186,39 @@ Wenn keine Daten aufscheinen kann es sein, dass in der Datenbank keine Daten sin
 * Nachdem das Fenster geladen ist und alle Dateien generiert wurden kann man das Fenster wieder schleißen
 * Unter `cypress/integration` muss ein neues File namens `testing.spec.js` erstellt werden.
 * Der Ordner `cypress/examples` kann gelöscht werden
+
+### 6. Travis.yml erstellen und das neue origin/master (Fork) mit TravisCI einbinden und server/client Tests durchführen
+Im root directory des Projektes muss ein File mit dem namen `.travis.yml` erstellt werden. Dieses erlaubt es Travis tests auszuführen. In diesem File muss dann das folgende eingetragen werden:
+
+```yml
+matrix:
+  include:
+  - stage: Tox
+    language: 'python'
+    python:
+    - "3.6"
+    install: pip install tox-travis
+    script: tox
+  - stage: Vue
+    language: 'node_js'
+    install:
+    - cd src/main/vue/client
+    - npm ci
+    script: npm test
+```
+#### Travis mit Github verbinden.
+Um travis mit einem Repo zu verbinden muss man zuerst auf (https://travis-ci.com/)[https://travis-ci.com/] gehen und sich mit github anmelden.
+
+!(Travis1.jpg](https://raw.githubusercontent.com/randomuser1819/simple-user-database/master/Travis1.jpg)
+!(Travis2.jpg](https://raw.githubusercontent.com/randomuser1819/simple-user-database/master/Travis2.jpg)
+
+Dann muss man Travis erlauben sein repositoy zu verwenden.
+
+!(Travis3.jpg](https://raw.githubusercontent.com/randomuser1819/simple-user-database/master/Travis3.jpg)
+
+Jetzt muss man entscheiden auf welche Repos Travis zugang haben soll.
+
+!(Travis4.jpg](https://raw.githubusercontent.com/randomuser1819/simple-user-database/master/Travis4.jpg)
+!(Travis5.jpg](https://raw.githubusercontent.com/randomuser1819/simple-user-database/master/Travis5.jpg)
+
+Unter (https://travis-ci.com/dashboard)[https://travis-ci.com/dashboard] hat man einen überblick über all Repositories die Travis testet. Jetzt kann man entweder Einen neuen build manuell starten oder durch einen neuen commit und push einen automatischen build starten.
