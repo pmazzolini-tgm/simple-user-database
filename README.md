@@ -85,61 +85,61 @@ Im File `src/components/HelloWorld.vue` alles löschen und durch das ersetzen:
 <script>  
 import axios from 'axios'
 export default {
-	name: 'HelloWorld',
-	data () {
-		return {
-			students: null,
-		}
-	},
-	methods:{
-		getStudents() {
-			const path = 'http://localhost:5000/students';
-			axios.get(path).then((res) => {
-				this.students = res.data;
-			}).catch((error) => {
-				console.error(error);
-			});
-		}
-	},
-	created(){
-		this.getStudents()
-	}
+  name: 'HelloWorld',
+  data () {
+    return {
+      students: null,
+    }
+  },
+  methods:{
+    getStudents() {
+      const path = 'http://localhost:5000/students';
+      axios.get(path).then((res) => {
+        this.students = res.data;
+      }).catch((error) => {
+        console.error(error);
+      });
+    }
+  },
+  created(){
+    this.getStudents()
+  }
 }
 </script>
 ```
 #### Code erklärung:
 ```html
 <template>
-	<div class="hello">
-		<div v-for="student in students">
-			{{ student.email }}
-		</div>
-	</div>
+  <div class="hello">
+    <div v-for="student in students">
+      {{ student.email }}
+    </div>
+  </div>
 </template> 
 ```
 Hier wird in den von VueJS verlangten `template` und `div class="hello"` durch jedes Element der Vue-Variable `students` iteriert und die Email Addresse jedes Schülers angezeigt.
 
 ```js
 data () {
-	return {
-		students: null,
-	}
-}
+    return {
+      students: null,
+    }
+  }
 ```
 Hier wird die Vue-Variable `students` deklariert.
 ```js
 methods:{
-	getStudents() {
-		const path = 'http://localhost:5000/students';
-		axios.get(path).then((res) => {
-			this.students = res.data;
-		}).catch((error) => {
-			console.error(error);
-		});
-	},
-	created(){
-		this.getStudents()
-	}
+  getStudents() {
+    const path = 'http://localhost:5000/students';
+    axios.get(path).then((res) => {
+      this.students = res.data;
+    }).catch((error) => {
+      console.error(error);
+    });
+  }
+},
+created(){
+  this.getStudents()
 }
 ```
 Hier werden 2 Methoden definiert:
@@ -186,6 +186,8 @@ Wenn keine Daten aufscheinen kann es sein, dass in der Datenbank keine Daten sin
 * Nachdem das Fenster geladen ist und alle Dateien generiert wurden kann man das Fenster wieder schleißen
 * Unter `cypress/integration` muss ein neues File namens `testing.spec.js` erstellt werden.
 * Der Ordner `cypress/examples` kann gelöscht werden
+
+
 
 ### 6. Travis.yml erstellen und das neue origin/master (Fork) mit TravisCI einbinden und server/client Tests durchführen
 Im root directory des Projektes muss ein File mit dem namen `.travis.yml` erstellt werden. Dieses erlaubt es Travis tests auszuführen. In diesem File muss dann das folgende eingetragen werden:
